@@ -31,3 +31,14 @@ steps:
     packagesToPush: '.publish/*.nupkg'
     nuGetFeedType: external
     publishFeedCredentials: nuget.org
+
+- task: GitHubRelease@0
+  displayName: 'GitHub release (create)'
+  inputs:
+    gitHubConnection: github.com
+    repositoryName: 'wk-j/azure-release'
+    title: $(Build.BuildNumber)
+    tag: $(Build.BuildNumber)
+    releaseNotesSource: input
+    releaseNotes: 'New release $(Build.BuildNumber)'
+    assets: '.publish/*.nupkg'
