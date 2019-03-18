@@ -39,7 +39,8 @@ steps:
     gitHubConnection: 'github.com'
     repositoryName: 'wk-j/azure-release'
     title: $(Build.BuildNumber)
-    tagSource: 'auto'
+    tagSource: 'manual'
+    tag: $(Build.BuildNumber)
     releaseNotesSource: input
     releaseNotes: 'New release $(Build.BuildNumber)'
     assets: '.publish/*.nupkg'
